@@ -27,7 +27,6 @@ This project is a fully functional, virtualized Security Operations Center (SOC)
 | **SIEM/XDR**      | Wazuh               | Ingests logs, analyzes events, and generates security alerts.           |
 | **Attacker VM**   | Kali Linux          | Launches simulated attacks (e.g., port scans, vulnerability exploits).  |
 | **Victim VM**     | Metasploitable2     | An intentionally vulnerable Linux server to act as the target.          |
-| **(Optional) Victim** | Windows 10 Eval     | A standard corporate endpoint to test Windows-specific attacks.       |
 
 ---
 
@@ -57,3 +56,19 @@ My objective was to create a closed-loop scenario: **Launch an attack and see th
 ### Configuration Details
 
 *(This section is for key technical details. Use code blocks for commands.)*
+
+---
+
+### Attack Detection Scenarios
+
+
+
+---
+
+### Future Improvements
+
+| **Upgrading Victim Environment** | Swapping Metasploitable2 for a Windows 10 Enterprise Evaluation VM to practice detecting threats more relevant to modern corporate environments, such as malicious PowerShell commands or suspicious scheduled tasks. |
+| **Adding Network Intrusion Detection (NIDS)** | Integrating Suricata on the pfSense firewall to add signature-based threat detection at the network level, providing another layer of visibility. |
+| **Enhancing Log Sources** | Setting up a web server (e.g., Apache) on a new victim VM and configuring Wazuh to ingest and analyze its access and error logs to detect web-based attacks like SQL injection or directory traversal. |
+
+---
