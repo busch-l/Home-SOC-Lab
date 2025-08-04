@@ -67,6 +67,8 @@ My objective was to create a closed-loop scenario: **Launch an attack and see th
 
 ### Future Improvements
 
+| System                                        | Purpose                                                                                                                                                                                                     | 
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Upgrading Victim Environment** | Swapping Metasploitable2 for a Windows 10 Enterprise Evaluation VM to practice detecting threats more relevant to modern corporate environments, such as malicious PowerShell commands or suspicious scheduled tasks. |
 | **Adding Network Intrusion Detection (NIDS)** | Integrating Suricata on the pfSense firewall to add signature-based threat detection at the network level, providing another layer of visibility. |
 | **Enhancing Log Sources** | Setting up a web server (e.g., Apache) on a new victim VM and configuring Wazuh to ingest and analyze its access and error logs to detect web-based attacks like SQL injection or directory traversal. |
