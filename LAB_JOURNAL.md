@@ -18,7 +18,7 @@ The primary offensive machine for this lab is Kali Linux. I downloaded the pre-b
 **Network Configuration:** The VM's primary network adapter (Adapter 1) was configured to connect to the **Internal Network** named `lab-net`. This isolates the machine within our lab environment.
 
 **Configuration Screenshot:**
-![Kali Linux Network Settings](kali-linux-in-virtualbox.png)
+![Kali Linux Network Settings](Images/kali-linux-in-virtualbox.png)
 
 ---
 
@@ -30,7 +30,7 @@ The core of the lab's defensive monitoring capabilities is the Wazuh Security In
 **Network Configuration:** Post-import, the VM's network adapter was switched to the **Internal Network** named `lab-net`. This places the SIEM server on the same private network as the other lab components, allowing it to receive logs from agents.
 
 **Configuration Screenshot:**
-![Wazuh Network Settings](Wazuh_in_VirtualBox.png)
+![Wazuh Network Settings](Images/Wazuh_in_VirtualBox.png)
 
 ---
 
@@ -45,7 +45,7 @@ A new VirtualBox VM was created with a Linux/Ubuntu (64-bit) profile and 1024 MB
 **Network Configuration:** The new VM's network adapter was then configured to use the **Internal Network** named `lab-net`.
 
 **Configuration Screenshot:**
-![Metasploitable2 Network Settings](Metasploitable_in_VirtualBox.png)
+![Metasploitable2 Network Settings](Images/Metasploitable_in_VirtualBox.png)
 
 ---
 
@@ -61,7 +61,7 @@ This VM requires a dual-homed network configuration:
 
 **Configuration Screenshot:**
 *(Note: The following image shows the dual-adapter setup for pfSense)*
-![pfSense Network Settings](pfsense_in_VirtualBox.png)
+![pfSense Network Settings](Images/pfsense_in_VirtualBox.png)
 
 ---
 **End of Phase 1.** The lab environment is now fully provisioned and networked. The next phase will be the sequential power-on and initial configuration of each component.
