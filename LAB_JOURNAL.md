@@ -10,6 +10,21 @@ This journal documents the setup and configuration of a virtualized cybersecurit
 
 **Objective:** To provision the core virtual machines within Oracle VirtualBox and establish the foundational private network topology.
 
+###**1.0 - Network Topology Design and Architecture**
+
+**Objective:** To visually map the logical and physical layout of the lab environment using a network topology diagram before provisioning any VMs. This diagram will serve as the architectural blueprint for the project.
+
+**Description:** I used draw.io (diagrams.net) to create a comprehensive network diagram. The design uses a container-based model to clearly delineate the boundaries between the physical host, the virtualization layer, and the virtual network itself.
+
+* **Host Container:** A main rectangle represents the physical host machine, illustrating the physical boundary of the entire lab.
+* **VirtualBox Container:** Nested inside the host container, another rectangle defines the scope of the Oracle VirtualBox environment. All virtual components reside within this boundary.
+* **Logical Flow:** The external "Cloud" icon, representing the internet, connects directly and exclusively to the pfSense VM's WAN interface. This connection crosses the container boundaries and is labeled as a NAT connection, accurately depicting how the lab accesses the outside world via the host's network connection.
+* **Internal Network (lab-net):** All lab VMs (pfSense LAN, Wazuh, Kali, Metasploitable2) are connected to a virtual switch, representing the isolated lab-net. This ensures all internal traffic is segmented and can be monitored by the firewall.
+
+![Network Topology](Images/Topology_of_Project.png)
+
+---
+
 ### **1.1 - Provisioning the Attacker VM: Kali Linux**
 
 **Description:**
