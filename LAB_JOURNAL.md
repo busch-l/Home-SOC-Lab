@@ -10,7 +10,7 @@ This journal documents the setup and configuration of a virtualized cybersecurit
 
 **Objective:** To provision the core virtual machines within Oracle VirtualBox and establish the foundational private network topology.
 
-###**1.0 - Network Topology Design and Architecture**
+### **1.0 - Network Topology Design and Architecture**
 
 **Objective:** To visually map the logical and physical layout of the lab environment using a network topology diagram before provisioning any VMs. This diagram will serve as the architectural blueprint for the project.
 
