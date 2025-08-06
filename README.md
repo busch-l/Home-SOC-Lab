@@ -61,6 +61,8 @@ The lab operates within a private network (lab-net, 192.168.1.0/24) managed by a
 
 ![Network Topology](Images/Topology_of_Project.png)
 
+(Further configuration details, like key commands or config file snippets, will go here)
+
 ---
 
 ### Attack Detection Scenarios
