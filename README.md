@@ -8,6 +8,7 @@ Fully virtualized cybersecurity home lab for threat detection and analysis using
 * [Project Objectives](#project-objectives)
 * [Configuration Details](#configuration-details)
 * [Attack & Detection Scenarios](#attack--detection-scenarios)
+* [Lab Journal](#lab-journal)
 * [Future Improvements](#future-improvements)
 
 ---
@@ -32,7 +33,7 @@ This project is a fully functional, virtualized Security Operations Center (SOC)
 
 ### Key Skills Demonstrated
 
-*   **Network Administration:** Deployed and configured a pfSense firewall to create network segments and routing rules.
+*   **Network Architecture & Administration:** Deployed and configured a pfSense firewall to create network segments and routing rules.
 *   **Security Information and Event Management (SIEM):** Installed and configured a Wazuh SIEM, deployed agents, and ingested logs from multiple sources.
 *   **Threat Detection:** Wrote and tuned detection rules in Wazuh to identify specific malicious activities.
 *   **Log Analysis:** Analyzed raw logs from network devices and endpoints to investigate security alerts.
@@ -55,13 +56,24 @@ My objective was to create a closed-loop scenario: **Launch an attack and see th
 
 ### Configuration Details
 
-*(This section is for key technical details. Use code blocks for commands.)*
+**Network Topology**
+The lab operates within a private network (lab-net, 192.168.1.0/24) managed by a pfSense firewall. All virtual machines are hosted within a VirtualBox environment on a single physical host. The firewall is the sole gateway to the internet via a NAT connection, ensuring all traffic is monitored and controlled.
+
+![Network Topology](Images/Topology_of_Project.png)
 
 ---
 
 ### Attack Detection Scenarios
 
+(This section will be filled out once I perform attacks)
 
+---
+
+### Lab Journal
+
+For a detailed, step-by-step log of the entire lab build process including specific commands and configuration screenshots please see the full lab journal.
+
+[View the Full Lab Journal](LAB_JOURNAL.md)
 
 ---
 
