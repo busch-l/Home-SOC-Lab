@@ -80,3 +80,62 @@ This VM requires a dual-homed network configuration:
 
 ---
 **End of Phase 1.** The lab environment is now fully provisioned and networked. The next phase will be the sequential power-on and initial configuration of each component.
+
+---
+
+## Phase 2: System Initialization and Core Service Configuration
+
+### **Date: 8/21/2025**
+
+**Objective:** To perform the initial power-on and configuration of the core lab infrastructure, including the pfSense firewall, the Kali attacker VM, and the Wazuh SIEM. The goal is to establish a secure, baseline network with internet access and initial security monitoring capabilities.
+
+### **2.1 - pfSense Firewall Installation and Configuration**
+
+**Description:**
+Following a video guide from ZacsTech, I initiated the installation of pfSense from the `.iso` media. The initial installation process was straightforward, however, I encountered a common virtualization pitfall: a boot loop. The system was repeatedly booting into the installer instead of the newly installed OS.
+
+**Troubleshooting and Resolution:**
+After reviewing the guide, I identified the cause: the virtual `.iso` media had not been ejected from the VM's virtual optical drive. After powering down the VM and removing the disk from the settings, pfSense booted correctly from its virtual hard disk.
+
+**Configuration:**
+1.  **Console Configuration:** Using the post-boot console menu, I assigned the network interfaces: the NAT adapter was set as **WAN**, and the `lab-net` adapter was set as **LAN**.
+2.  **Web GUI Setup:** I then powered on the Kali Linux VM, which successfully received a DHCP lease from pfSense. Using Kali's Firefox browser, I navigated to the pfSense gateway (`https://192.168.1.1`) to complete the web-based setup wizard.
+3.  **Hardening:** During the setup wizard, the default `admin` password was changed to a strong, unique password.
+
+**Validation:**
+Internet connectivity for the entire lab network was successfully established. This was verified by using the pfSense diagnostics tool to ping an external host (`google.com`), which returned successful replies.
+
+---
+
+### **2.2 - Kali Linux Initial Hardening**
+
+**Description:**
+As a primary security measure, the default credentials for the Kali Linux VM were changed.
+
+**Process:**
+After logging in with the default `kali`/`kali` credentials, I used the `passwd` command in the terminal to set a new, strong password for the `kali` user account. This mitigates the risk of trivial unauthorized access.
+
+---
+
+### **2.3 - Wazuh Server Activation and Agent Deployment**
+
+**Description:**
+With the network operational, the Wazuh SIEM server was powered on. It correctly acquired an IP address from the pfSense DHCP server.
+
+**Process:**
+1.  **Accessing the Dashboard:** From the Kali VM's browser, I navigated to the Wazuh server's assigned IP address and logged into the web dashboard using the default credentials.
+2.  **First Agent Deployment:** I initiated the "Deploy a new agent" process. Following the prompts, I selected the correct package type for Kali Linux (**DEB amd64**) and configured the agent to report back to the Wazuh server's IP.
+3.  **Installation:** The generated installation command was copied and executed with `sudo` privileges in the Kali terminal.
+
+**Validation:**
+The agent installation was successful. The Kali VM appeared in the Wazuh dashboard with an "Active" status, confirming that the agent is successfully communicating with the server and forwarding security data.
+
+---
+
+### **2.4 - Lab State Snapshot and Next Steps**
+
+**Description:**
+The core infrastructure of the lab is now configured, hardened, and operational. A stable baseline has been achieved. To preserve this functional state, I have taken a snapshot of the pfSense, Kali, and Wazuh VMs. The Metasploitable2 VM remains in its original, powered-off state, ready for the next phase.
+
+**Next Objective:**
+The immediate next step is to power on the Metasploitable2 VM and deploy a Wazuh agent on it. This will complete the instrumentation of the lab, allowing for offensive exercises to be launched from Kali and detected by Wazuh.
