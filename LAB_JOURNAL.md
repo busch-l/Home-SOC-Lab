@@ -105,6 +105,8 @@ After reviewing the guide, I identified the cause: the virtual `.iso` media had 
 **Validation:**
 Internet connectivity for the entire lab network was successfully established. This was verified by using the pfSense diagnostics tool to ping an external host (`google.com`), which returned successful replies.
 
+![Internet Connectivity Validation](Images/google_ping.png)
+
 ---
 
 ### **2.2 - Kali Linux Initial Hardening**
@@ -130,12 +132,16 @@ With the network operational, the Wazuh SIEM server was powered on. It correctly
 **Validation:**
 The agent installation was successful. The Kali VM appeared in the Wazuh dashboard with an "Active" status, confirming that the agent is successfully communicating with the server and forwarding security data.
 
+![Agent Confirmation](Images/Kali_deployed_agent.png)
+
 ---
 
 ### **2.4 - Lab State Snapshot and Next Steps**
 
 **Description:**
 The core infrastructure of the lab is now configured, hardened, and operational. A stable baseline has been achieved. To preserve this functional state, I have taken a snapshot of the pfSense, Kali, and Wazuh VMs. The Metasploitable2 VM remains in its original, powered-off state, ready for the next phase.
+
+![Saved States in VirtualBox](Images/Saved_states_virtual_box.png)
 
 **Next Objective:**
 The immediate next step is to power on the Metasploitable2 VM and deploy a Wazuh agent on it. This will complete the instrumentation of the lab, allowing for offensive exercises to be launched from Kali and detected by Wazuh.
